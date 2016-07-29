@@ -1,0 +1,5 @@
+[ 
+	{ "id" : "pmr" , "name" : "Manager"} , 
+	{ "id" : "mem" , "name" : "Member"} , 
+	{ "id" : "shr" , "name" : "Stakeholder"}
+]

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>iOnTask</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+
+		<!--jquery-->
+		<script src="jquery/jquery-1.11.2.min.js"></script>
+		<script src="jquery-ui/jquery-ui.js"></script>
+		<link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+
+		<script src="jquery/jquery.scrolly.min.js"></script>
+		<script src="jquery/jquery.dropotron.min.js"></script>
+		<script src="jquery/jquery.scrollex.min.js"></script>
+
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+
+		<!--skel-->
+		<script src="skel/skel.min.js"></script>
+		<script src="skel/skel-layers.min.js"></script>
+		<script src="skel/init.js"></script>
+
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-small.css" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+
+		<!--moment js-->
+		<script src="moment/moment.js"></script>
+
+		<!--jquery datatable-->
+		<script src="datatable/js/jquery.dataTables.js"></script>
+		<script src="datatable/js/dataTables.tableTools.js"></script>
+		<script src="datatable/js/dataTables.responsive.js"></script>
+
+		<link rel="stylesheet" href="datatable/css/jquery.dataTables.css"type="text/css" >
+		<link rel="stylesheet" href="datatable/css/dataTables.tableTools.css"type="text/css" >
+		<link rel="stylesheet" href="datatable/css/dataTables.responsive.css"type="text/css">
+
+		<!--gantt-->
+		<link rel=stylesheet href="gantt/platform.css" type="text/css">
+		<link rel=stylesheet href="gantt/dateField/jquery.dateField.css" type="text/css">
+
+		<link rel=stylesheet href="gantt/gantt.css" type="text/css">
+		<link rel=stylesheet href="gantt/ganttPrint.css" type="text/css" media="print">
+
+		<script src="gantt/platform.js"></script>
+		<script src="gantt/jquery.livequery.min.js"></script>
+		<script src="gantt/jquery.timers.js"></script>
+		<script src="gantt/date.js"></script>
+		<script src="gantt/i18nJs.js"></script>
+		<script src="gantt/dateField/jquery.dateField.js"></script>
+		<script src="gantt/JST/jquery.JST.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="gantt/jquery.svg.css">
+		<script type="text/javascript" src="gantt/jquery.svg.min.js"></script>
+
+		<!--In case of jquery 1.8-->
+		<script type="text/javascript" src="gantt/jquery.svgdom.1.8.js"></script>
+
+		<script src="gantt/ganttUtilities.js"></script>
+		<script src="gantt/ganttTask.js"></script>
+		<script src="gantt/ganttDrawerSVG.js"></script>
+		<script src="gantt/ganttGridEditor.js"></script>
+		<script src="gantt/ganttMaster.js"></script>
+
+		<!--innosics-->
+		<script src="innosics/innosics-master-1.0.js"></script>
+		<script src="innosics/innosics-fw-1.0.js"></script>
+		<script src="innosics/innosics-nav-1.0.js"></script>
+		<script src="innosics/innosics-register-1.0.js"></script>
+		<script src="innosics/innosics-auth-1.0.js"></script>
+		<script src="innosics/innosics-tools-1.0.js"></script>
+		<script src="innosics/innosics-space-1.0.js"></script>
+
+		<script src="innosics/innosics-gantt-1.0.js"></script>
+		<script src="innosics/innosics-project-1.0.js"></script>
+		<script src="innosics/innosics-task-1.0.js"></script>
+		<script src="innosics/innosics-role-1.0.js"></script>
+		<script src="innosics/innosics-people-1.0.js"></script>
+
+		<link rel="stylesheet" href="innosics/innosics-master.1.0.css"type="text/css">
+
+	</head>
+	<body>
+		<header id="header" class="skel-layers-fixed" style="color: #ddd;">
+			<h1 id="logo"><a id="defaultWorkspaceName" name="defaultWorkspaceName" href="javascript:switchWorkspace();">iOnTask</a></h1>
+			<nav id="nav">
+				<ul>
+					<li id="loginMenuli" class="unauthorized"><a href="javascript:loginFirst();">Login</a></li>
+					<li class="unauthorized"><a href="javascript:initRegisterDialog();" class="button special">Sign Up</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section id="banner" class="unauthorized">
+			<div class="content">
+				<header>
+					<h2>Welcome to iOnTask !</h2>
+					<p>Manage your daily work easily anytime and anywhere.</p>
+				</header>
+				<span class="image"><img src="images/ion.jpg" alt="" /></span>
+			</div>
+		</section>
+		<section id="gantt" class="gantt" style="display: none">
+			<div id="workspaceGantt">
+			</div>
+		</section>
+		<div id="main" class="wrapper style1 authorized nongantt" style="display: none">
+			<div class="container">
+				<div class="row 100%">
+					<!--<div class="3u 12u$(medium)">
+							<section id="sidebar">
+							</section>
+					</div>-->
+					<div class="12u$ 12u$(medium) important(medium)">
+						<section id="content">
+							<div id="mainWorkspace">
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer id="footerToolBar">
+			<ul id="toolBar" class="icons authorized" style="display: none">
+			</ul>
+			<ul class="copyright unauthorized">
+				<li>&copy; Ionscape Inc. All rights reserved.</li>
+			</ul>
+		</footer>
+		<div id="tips">
+			<button onclick="showHelpTips();" class="ganttButton textual" title="help"><span class="teamworkIcon" style="color:red; font-size: 26px;">&#x40;</span></button>
+		</div>
+		<div id="goback" class="authorized" style="display: none">
+			<button onclick="goback();" class="ganttButton textual" title="help"><span class="teamworkIcon" style="color:red; font-size: 26px;">&#x3a;</span></button>
+		</div>
+	</body>
+</html>
