@@ -1,0 +1,86 @@
+{
+	"success": true, "MESSAGE": "",
+	"data":
+	{ 
+		"code" : "PCS1.0" , 
+		"name" : "Innosics PCS 1.0" , 
+		"tasks" : 
+		[ 
+			{ 
+				"id" : 1 , 
+				"name" : "New Project" , 
+				"progress" : 0 , 
+				"description" : "" , 
+				"code" : "NEW" , 
+				"level" : 0 , 
+				"status" : "STATUS_ACTIVE" , 
+				"depends" : "" , 
+				"canWrite" : true , 
+				"start" : 1420693200000 , 
+				"duration" : 1 , 
+				"end" : 1424149199999 , 
+				"startIsMilestone" : false , 
+				"endIsMilestone" : false , 
+				"collapsed" : false , 
+				"assigs" : 
+				[ 
+					{ 
+						"id" : "tmp_1420937788162" , 
+						"resourceId" : "tmp_1" , 
+						"roleId" : "tmp_1" , 
+						"effort" : 0
+					}
+				] , 
+				"hasChild" : true
+			} 
+		] , 
+		"selectedRow" : 0 , 
+		"deletedTaskIds" : [ ] , 
+		"resources" : 
+		[ 
+			{
+				"_id": "14b08eb344ae968368254a40",
+				"status": "ACTIVE",
+				"name": "Sou McManus",
+				"email": "soumcmanus@blackberry.com",
+				"title": "Patent Administrator",
+				"location": "Waterloo",
+				"phone": "519-000-0001",
+				"mobile": "519-000-0001",
+				"address": "275 Frank Tompa Drive"
+			},
+			{
+				"_id": "24b08eb344ae968368254a41",
+				"status": "ACTIVE",
+				"name": "Bashar Jano",
+				"email": "gw@innosics.com",
+				"title": "Accountant",
+				"location": "Waterloo",
+				"phone": "519-000-0001",
+				"mobile": "519-000-0001",
+				"address": "275 Frank Tompa Drive"
+			},
+			{
+				"_id": "24b08eb344ae968368254a42",
+				"status": "ACTIVE",
+				"name": "Garrett Winters",
+				"email": "gw@innosics.com",
+				"title": "Accountant",
+				"location": "Waterloo",
+				"phone": "519-000-0001",
+				"mobile": "519-000-0001",
+				"address": "275 Frank Tompa Drive"
+			}
+		] , 
+		"roles" : 
+		[ 
+			{ "id" : "pmr" , "name" : "Project Manager"} , 
+			{ "id" : "mem" , "name" : "Worker"} , 
+			{ "id" : "shr" , "name" : "Stakeholder"}
+		] , 
+		"canWrite" : true , 
+		"canWriteOnParent" : true , 
+		"splitterPosition" : 67.96992481203009 , 
+		"zoom" : "m"
+	}
+}

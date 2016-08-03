@@ -1,0 +1,186 @@
+BODY, TBODY {
+  margin: 0;
+}
+
+.buttonsmall {
+  display:inline-block;
+  font-size:110%;
+  font-family:Arial, sans-serif;
+  color:#fff;
+  cursor:pointer;
+  background-color:#373737;
+   -moz-box-shadow:1px 1px 1px #999;
+   -webkit-box-shadow:1px 1px 1px #999;
+   -o-box-shadow:1px 1px 1px #999;
+   box-shadow:1px 1px 1px #999;
+   -moz-border-radius:1px;
+   -webkit-border-radius:1px;
+   -o-border-radius:1px;
+   border-radius:1px;
+   border:none;
+   padding:1px 1px;
+   margin-bottom:1px;
+   margin-right:1px;
+  text-align: center
+}
+
+.buttonsmall.first {
+    background-color:#FEA730;
+    font-weight: bold;
+}
+.buttonsmall.first:hover {
+    background-color:#D98E2A;
+}
+
+.buttonsmall[disabled] {
+  cursor: default;
+  opacity:0.4
+}
+
+.buttonsmall:hover[disabled] {
+  background-color:#BABABA
+}
+
+.buttonsmall.textual, .buttonsmall.buttonImg {
+  border: none;
+  background-color: transparent;
+  color:#68979B;
+  -moz-box-shadow:0 0 0 #999;
+   -webkit-box-shadow:0 0 0 #999;
+   -o-box-shadow:0 0 0 #999;
+   box-shadow:0 0 0 #999;
+  -moz-border-radius:0;
+   -webkit-border-radius:0;
+   -o-border-radius:0;
+   border-radius:0;
+  padding:0;
+  margin:0;
+  text-align: left
+}
+
+.buttonsmall.edit {
+  color:#009E94;
+  padding:0;
+  margin:0
+}
+
+.buttonsmall.delete {
+  color:#B61E2D;
+  padding:0;
+  margin:0
+}
+
+.buttonsmall:hover {
+  background-color: #4C4C4C;
+}
+.buttonsmall.textual:hover, .buttonsmall.buttonImg:hover {
+  background-color: transparent;
+}
+
+.buttonsmall.add {
+  color:#009E94;
+}
+
+.buttonsmall.add .innosicsIcon {
+  color:#009E94;
+}
+
+.innosicsIcon {
+  font-family: 'TeamworkRegular', arial, sans-serif;
+  color:#617777;
+  font-weight:normal;
+  font-size:120%
+}
+
+.innosicsIcon.withLabel {
+  padding-right:5px;
+}
+
+
+.button:hover .innosicsIcon {
+  opacity: 0.8
+}
+
+.innosicsIcon.alert {
+  color:#B61E2D;
+}
+
+#main{
+	margin-top: 10px; 
+	margin-bottom: 3.5em; 
+}
+
+.ui-accordion .ui-accordion-content {
+	margin: 0;
+	padding-top:0px;
+	padding-bottom:0px;
+	padding-left:12px;
+	padding-right:12px;
+}
+.ui-accordion .ui-accordion-content a {
+	color: #16ABDD;
+}
+.ui-accordion .ui-accordion-content a:hover, a.aHover {
+	color: #0C85AD;
+	text-decoration: underline;
+}
+
+#footerToolBar {
+	background: rgba(39, 40, 51, 0.965);
+	box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.25);
+	cursor: default;
+	height: 3.5em;
+	left: 0;
+	line-height: 3.5em;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+}
+
+#footerToolBar .copyright li {
+	border-left: solid 1px rgba(255, 255, 255, 0.3);
+	display: inline-block;
+	list-style: none;
+	margin-left: 1.5em;
+	padding-left: 1.5em;
+}
+
+#footerToolBar .copyright li:first-child {
+	border-left: 0;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#footerToolBar .copyright li a {
+	color: inherit;
+}
+
+.taskEditRow td {
+	color: #000;
+	margin:0;
+	padding:0;
+	font-size: 10px;
+}
+
+#workspaceGantt {
+	border-top: solid 1px rgba(255, 255, 255, 0.6);
+}
+
+.ui-dialog { z-index: 1000000000000 !important ;}
+
+#tips {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	padding: 10px;
+}
+#goback {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 9999;
+	padding: 10px;
+}

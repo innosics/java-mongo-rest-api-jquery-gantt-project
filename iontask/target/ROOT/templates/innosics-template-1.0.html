@@ -1,0 +1,318 @@
+<div id="gantEditorTemplates" style="display:none;">
+  <div class="__template__" type="GANTBUTTONS"><!--
+  <div class="ganttButtonBar noprint">
+    <div class="buttons">
+    <button onclick="$('#workspaceGantt').trigger('undo.gantt');" class="ganttButton textual" title="undo"><span class="teamworkIcon">&#39;</span></button>
+    <button onclick="$('#workspaceGantt').trigger('redo.gantt');" class="ganttButton textual" title="redo"><span class="teamworkIcon">&middot;</span></button>
+    <span class="ganttButtonSeparator"></span>
+    <button onclick="$('#workspaceGantt').trigger('addAboveCurrentTask.gantt');" class="ganttButton textual" title="insert above"><span class="teamworkIcon">l</span></button>
+    <button onclick="$('#workspaceGantt').trigger('addBelowCurrentTask.gantt');" class="ganttButton textual" title="insert below"><span class="teamworkIcon">X</span></button>
+    <span class="ganttButtonSeparator"></span>
+    <button onclick="$('#workspaceGantt').trigger('indentCurrentTask.gantt');" class="ganttButton textual" title="indent task"><span class="teamworkIcon">.</span></button>
+    <button onclick="$('#workspaceGantt').trigger('outdentCurrentTask.gantt');" class="ganttButton textual" title="unindent task"><span class="teamworkIcon">:</span></button>
+    <span class="ganttButtonSeparator"></span>
+    <button onclick="$('#workspaceGantt').trigger('moveUpCurrentTask.gantt');" class="ganttButton textual" title="move up"><span class="teamworkIcon">k</span></button>
+    <button onclick="$('#workspaceGantt').trigger('moveDownCurrentTask.gantt');" class="ganttButton textual" title="move down"><span class="teamworkIcon">j</span></button>
+    <span class="ganttButtonSeparator"></span>
+    <button onclick="$('#workspaceGantt').trigger('zoomMinus.gantt');" class="ganttButton textual" title="zoom out"><span class="teamworkIcon">)</span></button>
+    <button onclick="$('#workspaceGantt').trigger('zoomPlus.gantt');" class="ganttButton textual" title="zoom in"><span class="teamworkIcon">(</span></button>
+    <span class="ganttButtonSeparator"></span>
+    <button onclick="$('#workspaceGantt').trigger('deleteCurrentTask.gantt');" class="ganttButton textual" title="delete"><span class="teamworkIcon">&cent;</span></button>
+    <span class="ganttButtonSeparator"></span>
+    <button onclick="print();" class="ganttButton textual" title="print"><span class="teamworkIcon">p</span></button>
+    <span class="ganttButtonSeparator"></span>
+    <button onclick="ge.gantt.showCriticalPath=!ge.gantt.showCriticalPath; ge.redraw();" class="ganttButton textual" title="Critical Path"><span class="teamworkIcon">&pound;</span></button>
+    <span class="ganttButtonSeparator"></span>
+    <button onclick="editResources();" class="ganttButton textual" title="edit resources"><span class="teamworkIcon">M</span></button>
+    <span class="ganttButtonSeparator"></span>
+    <button onclick="saveGanttOnServer();" class="ganttButton textual" title="save"><span class="teamworkIcon">&#xf2;</span></button>
+    </div></div>
+  --></div>
+
+  <div class="__template__" type="TASKSEDITHEAD"><!--
+  <table class="gdfTable" cellspacing="0" cellpadding="0">
+    <thead>
+    <tr style="height:40px">
+      <th class="gdfColHeader" style="width:35px;"></th>
+      <th class="gdfColHeader" style="width:25px;"></th>
+      <th class="gdfColHeader gdfResizable" style="width:30px;">code/short name</th>
+
+      <th class="gdfColHeader gdfResizable" style="width:300px;">name</th>
+      <th class="gdfColHeader gdfResizable" style="width:80px;">start</th>
+      <th class="gdfColHeader gdfResizable" style="width:80px;">end</th>
+      <th class="gdfColHeader gdfResizable" style="width:50px;">dur.</th>
+      <th class="gdfColHeader gdfResizable" style="width:50px;">dep.</th>
+      <th class="gdfColHeader gdfResizable" style="width:200px;">assignees</th>
+    </tr>
+    </thead>
+  </table>
+  --></div>
+
+  <div class="__template__" type="TASKROW"><!--
+  <tr taskId="(#=obj.id#)" class="taskEditRow" level="(#=level#)">
+    <th class="gdfCell edit" align="right" style="margin:0;padding:0;cursor:pointer;"><div style='margin:0;padding:0;width:100%;height:18px;overflow:hidden;'><span class="taskRowIndex">(#=obj.getRow()+1#)</span> <span class="teamworkIcon" style="font-size:12px;" >e</span></div></th>
+    <td class="gdfCell noClip" style='margin:0;padding:0;' align="center"><div style='margin:0;padding:0;width:100%;height:18px;overflow:hidden;'><div class="taskStatus cvcColorSquare" status="(#=obj.status#)"></div></div></td>
+    <td class="gdfCell" style='margin:0;padding:0;' ><div style='margin:0;padding:0;width:100%;height:18px;overflow:hidden;'><input type="text" name="code" value="(#=obj.code?obj.code:''#)"></div></td>
+    <td class="gdfCell indentCell" style="margin:0;padding:0;padding-left:(#=obj.level*10#)px;"><div style='margin:0;padding:0;width:100%;height:18px;overflow:hidden;'>
+      <input type="text" name="name" value="(#=obj.name#)"></div>
+    </td>
+
+    <td class="gdfCell" style='margin:0;padding:0;'><div style='margin:0;padding:0;width:100%;height:18px;overflow:hidden;'><input type="text" name="start"  value="" class="date"></div></td>
+    <td class="gdfCell" style='margin:0;padding:0;'><div style='margin:0;padding:0;width:100%;height:18px;overflow:hidden;'><input type="text" name="end" value="" class="date"></div></td>
+    <td class="gdfCell" style='margin:0;padding:0;'><div style='margin:0;padding:0;width:100%;height:18px;overflow:hidden;'><input type="text" name="duration" value="(#=obj.duration#)"></div></td>
+    <td class="gdfCell" style='margin:0;padding:0;'><div style='margin:0;padding:0;width:100%;height:18px;overflow:hidden;'><input type="text" name="depends" value="(#=obj.depends#)" (#=obj.hasExternalDep?"readonly":""#)></div></td>
+    <td class="gdfCell taskAssigs" style='margin:0;padding:0;'><div style='margin:0;padding:0;width:100%;height:18px;overflow:hidden;'>(#=obj.getAssigsString()#)</div></td>
+  </tr>
+  --></div>
+
+  <div class="__template__" type="TASKEMPTYROW"><!--
+  <tr class="taskEditRow emptyRow" >
+    <th class="gdfCell" align="right"></th>
+    <td class="gdfCell noClip" align="center"></td>
+    <td class="gdfCell"></td>
+    <td class="gdfCell"></td>
+    <td class="gdfCell"></td>
+    <td class="gdfCell"></td>
+    <td class="gdfCell"></td>
+    <td class="gdfCell"></td>
+    <td class="gdfCell"></td>
+  </tr>
+  --></div>
+
+  <div class="__template__" type="TASKBAR"><!--
+  <div class="taskBox taskBoxDiv" taskId="(#=obj.id#)" >
+    <div class="layout (#=obj.hasExternalDep?'extDep':''#)">
+      <div class="taskStatus" status="(#=obj.status#)"></div>
+      <div class="taskProgress" style="width:(#=obj.progress>100?100:obj.progress#)%; background-color:(#=obj.progress>100?'red':'rgb(153,255,51);'#);"></div>
+      <div class="milestone (#=obj.startIsMilestone?'active':''#)" ></div>
+
+      <div class="taskLabel"></div>
+      <div class="milestone end (#=obj.endIsMilestone?'active':''#)" ></div>
+    </div>
+  </div>
+  --></div>
+
+  <div class="__template__" type="CHANGE_STATUS"><!--
+    <div class="taskStatusBox">
+      <div class="taskStatus cvcColorSquare" status="STATUS_ACTIVE" title="active"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_DONE" title="completed"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_FAILED" title="failed"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_SUSPENDED" title="suspended"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_UNDEFINED" title="undefined"></div>
+    </div>
+  --></div>
+
+
+  <div class="__template__" type="TASK_EDITOR"><!--
+  <div class="ganttTaskEditor" title="Task">
+	<section>
+		<div class="row uniform 50%" style="padding: 5px;">
+
+			<div class="6u 12u$(xsmall)"><label for="taskStatus">Status</label></div>
+			<div class="6u 12u$(xsmall)"><div id="status" class="taskStatus" status=""></div></div>
+
+			<div class="12u 12u$(xsmall)"><hr></div>
+
+			<div class="6u 12u$(xsmall)"><label for="code">code</label><input type="text" name="code" id="code" value="" placeholder="code"/></div>
+			<div class="6u 12u$(xsmall)"><label for="name">name</label><input type="text" name="name" id="name" value="" placeholder="name"/></div>
+
+			<div class="6u 12u$(xsmall)"><label for="duration">duration</label><input type="text" name="duration" id="duration" value="" placeholder="duration"/></div>
+			<div class="6u 12u$(xsmall)"><label for="progress">progress</label><input type="text" name="progress" id="progress" value="" placeholder="progress"/></div>
+
+			<div class="6u 12u$(xsmall)">
+				<label for="duration">start</label><input type="text" name="start" id="start" value="" class="date" placeholder="Start"/>
+				<input type="checkbox" id="startIsMilestone" name="startIsMilestone"><label for="startIsMilestone">Milestone</label>
+			</div>
+			<div class="6u 12u$(xsmall)">
+				<label for="progress">end</label><input type="text" name="end" id="end" value="" class="date" placeholder="end"/>
+				<input type="checkbox" id="endIsMilestone" name="endIsMilestone"><label for="endIsMilestone">Milestone</label>
+			</div>
+
+			<div class="12u 12u$(xsmall)"><label for="description">description</label><textarea name="description" id="description" placeholder="Enter description" rows="1"></textarea></div>
+		</div>
+	</section>
+
+  </div>
+  --></div>
+
+
+  <div class="__template__" type="ASSIGNMENT_ROW"><!--
+  <tr taskId="(#=obj.task.id#)" assigId="(#=obj.assig.id#)" class="assigEditRow" >
+    <td style="margin:0;padding:0;"><select style="margin:0;padding:0;" name="resourceId" (#=obj.assig.id.indexOf("tmp_")==0?"":"disabled"#) ></select></td>
+    <td style="margin:0;padding:0;"><select style="margin:0;padding:0;" type="select" name="roleId"></select></td>
+    <td style="margin:0;padding:0;"><span class="teamworkIcon delAssig" style="margin:0;padding-left:5px; cursor: pointer">d</span></td>
+  </tr>
+  --></div>
+
+
+  <div class="__template__" type="RESOURCE_EDITOR"><!--
+  <div class="resourceEditor" style="background: #242424; padding: 5px;">
+
+    <h2>Project team</h2>
+    <table  cellspacing="1" cellpadding="0" width="100%" id="resourcesTable">
+      <tr>
+        <th style="width:100px;">name</th>
+        <th style="width:30px;" id="addResource"><span class="teamworkIcon" style="cursor: pointer">+</span></th>
+      </tr>
+    </table>
+
+    <div style="text-align: right; padding-top: 20px"><button id="resSaveButton" class="button big">save</button></div>
+  </div>
+  --></div>
+
+
+  <div class="__template__" type="RESOURCE_ROW"><!--
+  <tr resId="(#=obj.id#)" class="resRow" >
+    <td ><input type="text" name="name" value="(#=obj.name#)" style="width:100%;" class="formElements"></td>
+    <td align="center"><span class="teamworkIcon delRes" style="cursor: pointer">d</span></td>
+  </tr>
+  --></div>
+
+  <div class="__template__" type="PEOPLE_EDITOR"><!--
+	<div class="peopleEditor" title="Resource">
+		<section>
+			<div class="row uniform 50%" style="padding: 5px;">
+
+				<div class="12u 12u$(xsmall)"><label id="validationMsg" name="validationMsg" style="color:#f00"></label></div>
+
+				<div class="6u 12u$(xsmall)"><label for="email">Email</label><input type="hidden" id="_id" name="_id">
+					<input type="text" name="email" id="email" value="" placeholder="email"/>
+				</div>
+
+				<div class="6u 12u$(xsmall)"><label for="name">Name</label><input type="text" name="name" id="name" value="" placeholder="name"/></div>
+				<div class="6u 12u$(xsmall)"><label for="phone">Phone</label><input type="text" name="phone" id="phone" value="" placeholder="phone"/></div>
+
+				<div class="6u 12u$(xsmall)"><label for="spaceRole">Role</label>
+					<select name="spaceRole" id="spaceRole">
+						<option value="admin">Aministrator</option>
+						<option value="edit">Editor</option>
+						<option value="read">Reader</option>
+					</select>
+				</div>
+
+				<div class="12u 12u$(xsmall)"><label>Active members can access to your workspace and can be assigned to your project and task.</label></div>
+				<div class="12u 12u$(xsmall)"><input type="checkbox" id="statusPerson" name="statusPerson" checked><label for="statusPerson">Active?</label></div>
+
+			</div>
+		</section>
+	</div>
+  --></div>
+
+  <div class="__template__" type="ROLE_EDITOR"><!--
+	<div class="roleEditor" title="Resource">
+		<section>
+			<div class="row uniform 50%" style="padding: 5px;">
+				<div class="6u 12u$(xsmall)"><label for="id">Role ID</label><input type="hidden" id="_id" name="_id">
+					<input type="text" name="id" id="id" value="" placeholder="Role ID"/>
+				</div>
+
+				<div class="12u 12u$(xsmall)"><label for="name">Name</label><input type="text" name="name" id="name" value="" placeholder="name"/></div>
+
+				<div class="6u 12u$(xsmall)"><input type="checkbox" id="statusAssignmentRole" name="statusAssignmentRole"><label for="statusAssignmentRole">Active?</label></div>
+			</div>
+		</section>
+	</div>
+  --></div>
+
+  <div class="__template__" type="SPACE_EDITOR"><!--
+	<div class="spaceEditor" title="Workspace">
+		<section>
+			<div class="row uniform 50%" style="padding: 5px;">
+
+				<div class="12u 12u$(xsmall)"><label>
+				A workspace is your own database seperated to the default iOnTask workspace database, only members added to your workspace have access,
+				and only your workspace members are available to be assigned to your project. You may have one workspace for your organization,
+				or you may have one workspace for each business unit. 
+				</label></div>
+				<div class="12u 12u$(xsmall)"><label id="validationMsg" name="validationMsg" style="color:#f00">
+				</label></div>
+
+				<div class="6u 12u$(xsmall)"><label for="code">Database internal code, 3 to 10 alphabets, e.g., "ions"</label>
+					<input type="hidden" id="_id" name="_id">
+					<input type="text" name="code" id="code" value="" placeholder="code"/>
+				</div>
+
+				<div class="6u 12u$(xsmall)"><label for="name">Workspace name, 3 to 30 alphabets, e.g, "Ionscape"</label>
+					<input type="text" name="name" id="name" value="" placeholder="Name"/></div>
+
+				<div class="6u 12u$(xsmall)"><label for="term">Term: new workspace must have a starter term. It can be extended anytime before it expired.</label>
+					<select name="term" id="term">
+						<option value="0">No term extension, add members only</option>
+						<option value="1">1 month - $4.99 USD</option>
+						<option value="6">6 months - $24.99 USD</option>
+						<option value="12" selected>1 year - $44.99 USD</option>
+						<option value="36">3 years - $124.99 USD</option>
+					</select>
+				</div>
+
+				<div class="6u 12u$(xsmall)"><label for="maxms">Additional members: number of members allowed for your workspace. It can be expanded anytime.</label>
+					<select name="maxms" id="maxms">
+						<option value="0">0 additional member</option>
+						<option value="5">5 members - $1.99USD/month each</option>
+						<option value="10">10 members - $1.49USD/month each</option>
+						<option value="50" selected>50 members - $0.99USD/month each</option>
+						<option value="100">100 members - $0.89USD/month each</option>
+						<option value="500">500+ members - $0.49USD/month each</option>
+					</select>
+				</div>
+
+				<div class="12u 12u$(xsmall)"><label>Would you like to set this as your default workspace every time you loggin? You can change your default workspace anytime if you have multiple workspaces.</label></div>
+				<div class="12u 12u$(xsmall)"><input type="checkbox" id="statusSpacedefault" name="statusSpace" checked /><label for="statusSpacedefault">Yes</label></div>
+				<div class="12u 12u$(xsmall)"><label>Your payment for this purchase will be processed securely via PayPal, we will not collect any of your personal and credit information. </label></div>
+				<div class="12u 12u$(xsmall)"><label>Click Next to continue ...</label></div>
+
+			</div>
+		</section>
+	</div>
+  --></div>
+
+  <div class="__template__" type="SPACE_EDITOR_CREDIT"><!--
+	<div class="spaceEditor" title="Space">
+		<section>
+			<div class="row uniform 50%" style="padding: 5px;">
+
+				<div class="12u 12u$(xsmall)"><label id="validationMsg" name=""></label></div>
+
+				<div class="6u 12u$(xsmall)"><label>Payment for the workspace:</label></div>
+				<div class="6u 12u$(xsmall)"><label id="spaceToPurchase" name="spaceToPurchase" >Workspace: </label></div>
+
+				<div class="2u 12u$(xsmall)"><label for="cardtype">Card Type</label>
+					<select name="cardtype" id="cardtype">
+						<option value="visacard">Visa</option>
+						<option value="mastercard">Master</option>
+					</select>
+				</div>
+
+				<div class="10u 12u$(xsmall)"><label for="cardnumber">Card Number:</label>
+					<input type="text" name="cardnumber" id="cardnumber" value="" placeholder="Card Number"/></div>
+
+				<div class="6u 12u$(xsmall)"><label for="firstname">First name:</label>
+					<input type="text" name="firstname" id="firstname" value="" placeholder="First name"/></div>
+
+				<div class="6u 12u$(xsmall)"><label for="lastname">Last name:</label>
+					<input type="text" name="lastname" id="lastname" value="" placeholder="Last name"/></div>
+
+				<div class="4u 12u$(xsmall)"><label for="expiryyear">Expiry Year:</label>
+					<input type="text" name="expiryyear" id="expiryyear" value="" placeholder="2016"/></div>
+
+				<div class="4u 12u$(xsmall)"><label for="expirymonth">Expiry Month:</label>
+					<input type="text" name="expirymonth" id="expirymonth" value="" placeholder="12"/></div>
+
+				<div class="4u 12u$(xsmall)"><label for="cvvnumber">Cvv:</label>
+					<input type="text" name="cvvnumber" id="cvvnumber" value="" placeholder="111"/></div>
+
+				<div class="12u 12u$(xsmall)"><label>Billing Address</label>
+
+				<div class="12u 12u$(xsmall)"><input type="text" name="addrline1" id="addrline1" value="" placeholder="Address line 1"/></div>
+				<div class="12u 12u$(xsmall)"><input type="text" name="addrline2" id="addrline2" value="" placeholder="Address line 2"/></div>
+
+				<div class="6u 12u$(xsmall)"><input type="text" name="city" id="city" value="" placeholder="City"/></div>
+				<div class="6u 12u$(xsmall)"><input type="text" name="state" id="state" value="" placeholder="State / Province"/></div>
+				<div class="6u 12u$(xsmall)"><input type="text" name="country" id="country" value="" placeholder="Country"/></div>
+				<div class="6u 12u$(xsmall)"><input type="text" name="postalCode" id="postalCode" value="" placeholder="Postal Code"/></div>
+			</div>
+		</section>
+	</div>
+  --></div>
+
+</div>

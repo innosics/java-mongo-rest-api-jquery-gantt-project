@@ -1,0 +1,55 @@
+{
+		"id":"PAY-43Y86033P8123953EKTTYDVA",
+		"createTime":"2015-02-20T18:49:56Z",
+		"updateTime":"2015-02-20T18:50:03Z",
+		"intent":"sale",
+		"payer":{
+		"paymentMethod":"credit_card",
+		"fundingInstruments":[
+			{
+				"creditCard":{
+					"number":"xxxxxxxxxxxx5559",
+					"type":"mastercard",
+					"expireMonth":11,
+					"expireYear":2018,
+					"firstName":"Joe",
+					"lastName":"Shopper",
+					"billingAddress":{
+						"line1":"52 N Main ST",
+						"city":"Johnstown",
+						"countryCode":"US",
+						"postalCode":"43210",
+						"state":"OH"
+					}
+				}
+			}
+		]
+		
+		},
+		"transactions":[
+		{
+		"relatedResources":[
+		{
+		"sale":{
+		"id":"7C727857AW368221M",
+		"createTime":"2015-02-20T18:49:56Z",
+		"updateTime":"2015-02-20T18:50:03Z",
+		"amount":{"currency":"USD","total":"7.00"},
+		"state":"completed",
+		"parentPayment":"PAY-43Y86033P8123953EKTTYDVA",
+		"links":[
+		{"href":"https://api.sandbox.paypal.com/v1/payments/sale/7C727857AW368221M","rel":"self","method":"GET"},
+		{"href":"https://api.sandbox.paypal.com/v1/payments/sale/7C727857AW368221M/refund","rel":"refund","method":"POST"},
+		{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-43Y86033P8123953EKTTYDVA","rel":"parent_payment","method":"GET"}
+		]
+		}
+		}
+		],"amount":
+		{"currency":"USD","total":"7.00","details":
+		{"shipping":"1.00","subtotal":"5.00","tax":"1.00"}},"description":"This is the payment transaction description."}
+		],
+		"state":"approved",
+		"links":[
+		{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-43Y86033P8123953EKTTYDVA","rel":"self","method":"GET"}
+		]
+		}
